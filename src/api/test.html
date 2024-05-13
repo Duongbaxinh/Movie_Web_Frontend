@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id='test' name='test' placeholder="Nhap text" />
+    <p id="nu"></p>
+    <button id="clic">click me</button>
+    <button id="reset">click reset</button>
+</body>
+<script>
+    let test = document.getElementById('test')
+    let tet = 0
+    let idTiemOut1 = ''
+    document.getElementById('reset').addEventListener('click', () => {
+        clearInterval(idTiemOut1)
+        tet = 5
+    })
+    document.getElementById('clic').addEventListener("click", () => {
+        clearInterval(idTiemOut1)
+        const interId = setInterval(() => {
+            tet += 1
+            document.getElementById('nu').innerHTML = tet
+            console.log(tet)
+        }, 1000);
+        idTiemOut1 = interId
+    })
+    test.addEventListener('input', (e) => {
+        // clearTimeout(idTiemOut1)
+        const idTiemOut = setTimeout(() => {
+
+            tet = e.target.value
+            console.log(tet)
+        }, 1000)
+        idTiemOut1 = idTiemOut
+    })
+    console.log("ksjfkjsfd", tet)
+</script>
+
+</html>

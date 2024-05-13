@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap");
+@import "../../../assets/scss/mixin/mixin.scss";
+@import "../../../assets/scss/variaty/index.scss";
+@import "../../../assets/scss/typo/index.scss";
+.pop {
+  width: 100%;
+  @include padding(0 64px);
+  @include maxWith(1000px) {
+    @include padding(0 20px);
+  }
+  &__title {
+    @include formatTile;
+  }
+  &__main {
+    @include displayFlex($justy: flex-start, $align: flex-start);
+    gap: 24px;
+    @include maxWith(1000px) {
+      flex-wrap: wrap;
+      position: relative;
+    }
+  }
+  &__main-img {
+    width: 550px;
+    cursor: pointer;
+    @include maxWith(1000px) {
+      width: 100%;
+      border-radius: 5px;
+    }
+  }
+  &__right {
+    width: 100%;
+    @include displayFlex(
+      $direc: column,
+      $justy: flex-start,
+      $align: flex-start
+    );
+    flex-grow: 1;
+    gap: 45px;
+    @include maxWith(1000px) {
+      gap: 20px;
+    }
+  }
+  &__right-title {
+    @include label;
+    width: 100%;
+    @include maxWith($lg) {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    @include maxWith($xs) {
+      font-size: larger;
+      white-space: pre-wrap;
+    }
+  }
+  &__right-des {
+    @include displayFlex($direc: column);
+    gap: 10px;
+    @include title;
+    @include maxWith($xs) {
+      font-size: medium;
+      font-weight: 400;
+    }
+  }
+  &__btn {
+    @include displayFlex;
+    gap: 40px;
+    @include maxWith(1000px) {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    button {
+      width: 150px;
+      height: 40px;
+      @include maxWith($xs) {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        font-size: large;
+        margin-top: -50px;
+        border: 1px solid #ffff;
+        background: transparent;
+      }
+    }
+  }
+  &__btn-watch {
+    @include buttonLg();
+  }
+  &__textButton {
+    @include maxWith($xs) {
+      display: none;
+    }
+  }
+  &__btn-love {
+    @include buttonLg();
+    color: $black;
+    background: $white;
+    @include maxWith($xs) {
+      display: none;
+    }
+  }
+}

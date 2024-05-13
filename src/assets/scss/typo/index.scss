@@ -1,0 +1,15 @@
+@import "../variaty/index.scss";
+
+@mixin label {
+  font-size: xx-large;
+  font-family: "roboto";
+  font-weight: 700;
+  color: white;
+}
+
+@mixin title {
+  font-size: 1.2rem;
+  font-family: "roboto";
+  font-weight: 700;
+  color: white;
+}

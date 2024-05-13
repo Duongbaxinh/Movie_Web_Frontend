@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap");
+@import "../../assets/scss/mixin/mixin.scss";
+@import "../../assets/scss/variaty/index.scss";
+@import "../../assets/scss/typo/index.scss";
+.footer {
+  width: 100%;
+  height: auto;
+  @include padding(60px 48px);
+  &__top {
+    @include displayFlex($justy: flex-start, $align: flex-start);
+    gap: 62px;
+    padding-bottom: 50px;
+    border-bottom: 0.5px solid $white;
+  }
+  &__left {
+    max-width: 284px;
+    @include displayFlex(
+      $direc: column,
+      $justy: flex-start,
+      $align: flex-start
+    );
+    gap: 40px;
+  }
+  &__left-logo {
+    @include customLogo;
+  }
+  &__left-des {
+    @include title;
+  }
+  &__left-option {
+    @include displayFlex($justy: flex-start);
+    gap: 20px;
+  }
+  &__left-item {
+    width: 81px;
+    height: 27px;
+  }
+  &__main {
+    @include displayFlex($justy: flex-start);
+    gap: 60px;
+    flex-grow: 1;
+    flex-wrap: wrap;
+  }
+  &__main-item {
+    &:nth-child(2) {
+      margin-top: 20px;
+    }
+    @include itemFooter;
+  }
+  &__right {
+    width: 270px;
+    @include itemFooter;
+  }
+  &__bottom {
+    margin-top: 50px;
+    @include displayFlex($justy: space-between);
+    & p {
+      width: 60%;
+      font-family: "roboto";
+      color: $white;
+    }
+  }
+}

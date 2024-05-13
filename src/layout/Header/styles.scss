@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap");
+@import "../../assets/scss/mixin/mixin.scss";
+@import "../../assets/scss/variaty/index.scss";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.action {
+  color: red;
+}
+.header {
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  @include displayFlex($justy: flex-start);
+  gap: 20px;
+  @include padding(0 64px);
+  @include maxWith($md) {
+    @include padding(0 10px);
+  }
+  @include maxWith($sm) {
+    flex-wrap: wrap;
+  }
+  z-index: 999;
+  &__left {
+    @include displayFlex($justy: flex-start);
+    gap: 20px;
+  }
+  &__logo {
+    @include customLogo;
+    @include maxWith($sm) {
+      margin-top: 10px;
+    }
+  }
+  &__menu {
+    list-style: none;
+    @include displayFlex($justy: flex-start);
+    font-family: "roboto";
+    cursor: pointer;
+    color: $white;
+    gap: 16px;
+    visibility: visible;
+    transition: 0.2s ease-in;
+    & li:hover {
+      color: $red;
+    }
+    @include maxWith($lg) {
+      & li:last-child,
+      li:nth-child(6),
+      li:nth-child(5) {
+        display: none;
+      }
+      @include maxWith($md) {
+        display: none;
+      }
+    }
+  }
+  &__menu-icon {
+    display: none;
+    color: $white;
+    cursor: pointer;
+    @include maxWith($md) {
+      display: block;
+    }
+  }
+  &__right {
+    flex-grow: 1;
+    @include displayFlex($justy: flex-end);
+    gap: 15px;
+    @include maxWith($lg) {
+      justify-content: flex-end;
+    }
+    @include maxWith($xs) {
+      margin-top: -18px;
+    }
+  }
+  &__input {
+    @include displayFlex($justy: space-between);
+    gap: 10px;
+    height: 40px;
+    background-color: rgba($black, $alpha: 0.5);
+    border-radius: 50px;
+    flex-grow: 1;
+    @include maxWith($lg) {
+      width: 40%;
+    }
+    @include maxWith($xs) {
+      width: 100%;
+    }
+    & input {
+      background-color: transparent;
+      width: 100%;
+      @include padding(8px 0px 8px 16px);
+      border: 0;
+      outline: none;
+      color: $white;
+      font-size: 15px;
+      flex-grow: 1;
+      &::placeholder {
+        color: $white;
+      }
+      @include maxWith($xs) {
+        width: 80px;
+      }
+    }
+  }
+  &__btn {
+    @include displayFlex();
+    gap: 10px;
+  }
+  &__btn-left {
+    @include button($color: $red, $boder: 1px);
+  }
+
+  &__btn-right {
+    @include button($color_bg: $red, $color: $white);
+  }
+  &__user {
+    width: 45px;
+    height: 45px;
+    position: relative;
+    @include circle();
+  }
+}
