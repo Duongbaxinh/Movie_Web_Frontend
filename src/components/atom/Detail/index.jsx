@@ -11,8 +11,8 @@ function Detail(props) {
   const handleFull = () => {
     setFull(!full);
   };
-  const { Data, exeption, link } = props;
-  const lable = {
+  const { Data, description } = props;
+  const label = {
     link: (item) => (
       <Link
         href="trinhtham"
@@ -35,7 +35,7 @@ function Detail(props) {
           fontWeight: "500",
         }}
       >
-        {item}
+        {item || "heelo"}
       </Typography>
     ),
   };
@@ -61,7 +61,7 @@ function Detail(props) {
           <Typography component="span" variant="subtitle1" color={grey[500]}>
             Mô Tả:
           </Typography>
-          {Data.mv_description}
+          {description}
         </Typography>
 
         <Typography
@@ -76,34 +76,41 @@ function Detail(props) {
           {!full ? "Thu gọn" : "Xem Thêm"}
         </Typography>
       </Box>
-      <Stack gap="10px">
+      <Stack gap="10px" maxWidth="324px">
         {Object.keys(Data).map((item, index) => {
-          if (!exeption.includes(item)) {
-            return (
-              <Stack
-                key={index}
-                direction="row"
-                justifyContent="flex-start"
-                alignItems="flex-start"
-                gap="20px"
+
+          return (
+            <Stack
+              key={index}
+              direction="row"
+              justifyContent="flex-start"
+              alignItems="flex-start"
+              gap="20px"
+            >
+              <Typography
+                component="span"
+                style={{
+                  textTransform: "capitalize",
+                  color: grey[500],
+                  fontSize: "medium",
+                  fontWeight: "500",
+                }}
               >
-                <Typography
-                  component="span"
-                  style={{
-                    textTransform: "capitalize",
-                    color: grey[500],
-                    fontSize: "medium",
-                    fontWeight: "500",
-                  }}
-                >
-                  {item}:
-                </Typography>
-                {link.indexOf(item) !== -1
-                  ? lable.link(Data[item])
-                  : lable.text(Data[item])}
-              </Stack>
-            );
-          }
+                {item}:
+              </Typography>
+              <Typography
+                component="span"
+                style={{
+                  textDecorationLine: "none",
+                  fontSize: "medium",
+                  fontWeight: "500",
+                }}
+              >
+                {Data[item]}
+              </Typography>
+            </Stack>
+          );
+
         })}
       </Stack>
     </Stack>

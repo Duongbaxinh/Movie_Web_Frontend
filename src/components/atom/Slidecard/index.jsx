@@ -25,12 +25,6 @@ function Slidecard(props) {
   const mdPoint = theme.breakpoints.values.md;
   const lgPoint = theme.breakpoints.values.lg;
   const xlPoint = theme.breakpoints.values.xl;
-  /*
-    title tên của slide
-    icon trên title
-    preView số lượng muốn hiển thị
-    nameCard dùng để xử lý chuyển slide
-   */
   const { title, icon, preView, nameCard } = props;
   return (
     <Container
@@ -86,7 +80,7 @@ function Slidecard(props) {
       </Stack>
       <Swiper
         style={{ padding: "0 8px", width: "100%" }}
-        spaceBetween={19}
+        spaceBetween={50}
         parallax={true}
         effect={"fade"}
         modules={[Parallax, Navigation]}

@@ -34,13 +34,13 @@ function Register() {
   // const { message, handleSumited } = useSubmited('Register', dataUser, handleValideUserData, '/login')
   // console.log('sumt', message)
   const onSubmit = async (data) => {
-    const { data: datauser } = await axios.post('http://localhost:8080/api/v1/user/register', {
+    const { data: datauser } = await axios.post('http://localhost:8080/api/v1/users/register', {
       firstName: "Xinh",
       lastName: "Duong Ba",
       email: data.email,
       password: data.password
     })
-    console.log('check data submit :::: ', datauser.metadata)
+    console.log('check data submit :::: ', datauser.user)
   }
   return (
     <TemplatForm>

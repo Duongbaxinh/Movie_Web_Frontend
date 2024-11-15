@@ -25,7 +25,7 @@ function BoxSearch({ searchData }) {
         {searchData?.map((item, index) => (
           <Link
             key={index}
-            href={`/search/${item.id}`}
+            href={`/search/${item.name}`}
             sx={{
               textDecorationLine: "none",
             }}

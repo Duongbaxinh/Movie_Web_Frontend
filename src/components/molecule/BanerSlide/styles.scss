@@ -10,18 +10,9 @@
 }
 .banner-slide {
   width: 100%;
-  height: 650px;
   position: relative;
   z-index: 0;
-  @include maxWith(1030px) {
-    height: 750px;
-  }
-  @include maxWith($sm) {
-    height: 650px;
-  }
-  @include maxWith($xs) {
-    height: 550px;
-  }
+  aspect-ratio: 10/5;
   .banner-slide__item {
     position: absolute;
     width: 100%;

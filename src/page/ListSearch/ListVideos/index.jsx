@@ -31,14 +31,14 @@ function ListVideos({ dataMovie, isLoading }) {
       {dataMovie?.length > 0 ? (
         // ---------------
         dataMovie.map((item, index) => (
-          <Link key={index} href={`/watch/${item.id}`}>
+          <Link key={index} href={`/views/${item.id}`}>
             {" "}
             <Card
               key={index}
               width={'auto'}
               height={'163px'}
-              title={item.mv_name}
-              Urlimage={item.mv_thumbnail}
+              title={item.name}
+              Urlimage={item.avatar}
             />
           </Link>
         ))

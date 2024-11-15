@@ -12,7 +12,7 @@ function ListSearch({ data }) {
                 backgroundColor: grey[900],
             }}
         >
-            {data.map(({ id, mv_name }, index) => (
+            {data.map(({ id, name }, index) => (
                 <Stack
                     key={index}
                     sx={{
@@ -30,7 +30,7 @@ function ListSearch({ data }) {
                             textDecorationLine: "none",
                         }}
                     >
-                        {mv_name}
+                        {name}
                     </Typography>
                 </Stack>
             ))}

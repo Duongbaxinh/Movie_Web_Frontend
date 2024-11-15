@@ -16,26 +16,24 @@ import { useParams } from "react-router-dom";
 ViewsScreen.propTypes = {};
 
 const link = ["author", "Country", "Category"];
-const exeption = [
-  "mv_description",
+const exception = [
+  "description",
   "updatedAt",
   "createdAt",
   "fileName",
-  "mv_video",
-  "mv_thumbnail",
-  "image",
+  "video",
+  "thumbnail",
+  "avatar",
   "id",
   "time",
   "mainName",
-  "mv_trailler",
+  "trailler",
   "seriData"
 ];
 
 function ViewsScreen(props) {
   const { id } = useParams();
-  const { data: dataDetail } = useFetch('GET', `http://localhost:8080/api/v1/movie/${id}`)
-
-  const theme = useTheme()
+  const { data: dataDetail } = useFetch('GET', `http://localhost:8080/api/v1/movies/${id}`)
   const Icon = [
     {
       id: 1,
@@ -61,6 +59,20 @@ function ViewsScreen(props) {
   ];
 
   if (!dataDetail) return <h1>Loading...</h1>
+  // const infor = () => {
+  //   const itemClone = { ...dataDetail }
+  //   delete itemClone.updatedAt
+  //   delete itemClone.
+  //   delete itemClone.createdAt
+  //   delete itemClone.seriData
+  //   delete itemClone.seri_id
+  //   delete itemClone.description
+  //   delete itemClone.video
+  //   delete itemClone.trailler
+  //   delete itemClone.avatar
+  //   return itemClone
+  // }
+
   return (
     <Box pt="70px">
       {dataDetail && (
@@ -75,7 +87,7 @@ function ViewsScreen(props) {
                   margin: "0 auto",
                 }}
               >
-                <source src={dataDetail.mv_video} type="video/mp4" />
+                <source src={dataDetail.video} type="video/mp4" />
               </video>
             </Box>
           </Stack>
@@ -96,10 +108,10 @@ function ViewsScreen(props) {
                 <Stack direction="row" gap="10px" mb="22px">
                   <YouTubeIcon />
                   <Typography variant="h3" color={red[800]}>
-                    {dataDetail.mv_SeriId}~{dataDetail.mv_name}
+                    {dataDetail.SeriId}~{dataDetail.name}
                   </Typography>
                 </Stack>
-                <Typography variant="h1">{dataDetail.mv_name}</Typography>
+                <Typography variant="h1">{dataDetail.name}</Typography>
               </Stack>
               <Stack direction="row" gap="15px">
                 {Icon.map((item) => (
@@ -126,7 +138,18 @@ function ViewsScreen(props) {
                   padding: "0 75px",
                 }}
               />
-              <Detail Data={dataDetail} exeption={exeption} link={link} />
+              <Detail
+                description={dataDetail.description}
+                Data={{
+                  name: dataDetail.name,
+                  genre: dataDetail.genre,
+                  chapter: dataDetail.chapter,
+                  dubbing: dataDetail.dubbing,
+                  release: dataDetail.release,
+                  author: dataDetail.author,
+                  actor: dataDetail.actor,
+                  time: dataDetail.time
+                }} />
             </Box>
 
             <Interact Data={dataDetail} />

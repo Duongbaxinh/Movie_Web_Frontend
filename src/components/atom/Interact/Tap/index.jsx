@@ -24,7 +24,7 @@ function Tap({ data }) {
       }}
     >
 
-      {data.map((movie) => (
+      {data && data.length > 0 && data.map((movie) => (
         <Box
           color={colors.palette.my_white.main}
           sx={{
@@ -34,16 +34,20 @@ function Tap({ data }) {
           href={`/views/${movie.id}`}
         >
           <FormTap data={movie}>
+            <Typography variant="body2" component="span">
+              {movie.description}
+            </Typography>
             <Stack direction="row" justifyContent="space-between">
+
               <Stack direction="row" alignItems="center" justifyContent="center">
                 <RefreshIcon htmlColor={grey[500]} />
                 <Typography variant="body2" component="span">
                   {'1 hour 23 minutes'}
                 </Typography>
               </Stack>
-              <IconButton>
+              {/* <IconButton>
                 <AddCircleOutlineIcon htmlColor={colors.palette.my_white.main} />
-              </IconButton>
+              </IconButton> */}
             </Stack>
           </FormTap>
         </Box>

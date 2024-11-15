@@ -12,7 +12,6 @@ function BanerSlide(props) {
     clearTimeout(timeoutId);
     setVisible(id);
   };
-  console.log('checkkkkkkkkkkkkkk data ::::::::::::::: ', data)
 
   useEffect(() => {
     const newTimeoutId = setTimeout(() => {
@@ -27,16 +26,15 @@ function BanerSlide(props) {
     return () => clearTimeout(timeoutId);
   }, [visible]);
 
-  const { handleTranslateRight, handleTranslateleft, translate } = props;
   return (
     <div className="banner-slide">
-      {data?.map(({ id, sr_avatar, sr_thumbnail, sr_background, release }, index) => (
+      {data?.map(({ id, avatar, thumbnail, banner, release }, index) => (
         <div
           key={id}
           className={`banner-slide__item ${index != visible ? "visible" : ""}`}
         >
           <div className="banner-slide__tablet">
-            <img src={sr_thumbnail} alt="" className="banner-slide__imageTablet" />
+            <img src={thumbnail} alt="" className="banner-slide__imageTablet" />
             <p className="banner-slide__leased">
               Năm Phát Hành <span>{release}</span>
             </p>
@@ -45,7 +43,7 @@ function BanerSlide(props) {
               > Chi Tiết</button></a>
           </div>
           <div className="banner-slide__imageUrl">
-            <img src={sr_background} alt="" />
+            <img src={banner} alt="" />
           </div>
         </div>
       ))}
@@ -58,9 +56,9 @@ function BanerSlide(props) {
           ></li>
         ))}
       </ul>
-      <Seri
+      {/* <Seri
         dataSeri={data}
-      />
+      /> */}
     </div>
   );
 }

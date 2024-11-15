@@ -18,7 +18,7 @@ const Data = {
 function XemThem(props) {
   const colors = useTheme()
   const { queryName } = props;
-  const { data: seriData } = useFetch('GET', 'http://localhost:8080/api/v1/seri')
+  const { data: seriData } = useFetch('GET', 'http://localhost:8080/api/v1/seris')
 
   return (
     <Box
@@ -53,7 +53,7 @@ function XemThem(props) {
                 Nội Dung Bởi: TMS Entertainment
               </Typography>
               <Typography variant="subtitle2">
-                {`${seri.sr_name} được mua bản quyền và được cập nhật phát
+                {`${seri.title} được mua bản quyền và được cập nhật phát
                 sóng mới nhất trên ứng dụng giải trí POPS.`}
               </Typography>
             </FormTap>

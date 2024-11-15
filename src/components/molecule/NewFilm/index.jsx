@@ -15,15 +15,15 @@ function NewPhim({ data }) {
       height={"304px"}
       title={'Phim Mới Xem Ngay !'}
     >
-      {data?.map(({ id, mv_name, mv_thumbnail, mv_dubbing, mv_episode }, index) => (
+      {data?.map(({ id, name, avatar, dubbing, chapter }, index) => (
         <SwiperSlide key={index} style={{ flexShrink: 1 }}>
           <Link href={`/views/${id}`}>
             {" "}
             <Card
-              title={mv_name}
-              Urlimage={mv_thumbnail}
-              form={mv_dubbing}
-              episode={mv_episode}
+              title={name}
+              Urlimage={avatar}
+              form={dubbing}
+              episode={chapter}
               width={"212px"}
               height={"304px"}
             />

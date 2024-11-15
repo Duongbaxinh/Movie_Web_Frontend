@@ -21,7 +21,6 @@ function PaymentPage(props) {
     }
     const createOrder = async (data) => {
         // Order is created on the server and the order id is returned
-        console.log('check order selected 1 ::: ', isSelected.data)
         const response = await fetch("http://localhost:8080/api/v1/payment/createOrder", {
             method: "POST",
             headers: {
@@ -37,7 +36,6 @@ function PaymentPage(props) {
         return order.id;
     };
     const onApprove = async (data) => {
-        console.log('check order selected 2 ::: ', isSelected.data)
         // Order is captured on the server and the response is returned to the browser
         const response = await fetch("http://localhost:8080/api/v1/payment/capture", {
             method: "POST",
@@ -52,7 +50,6 @@ function PaymentPage(props) {
         });
 
         const check = await response.json();
-        console.log('chekkkkkkkkkkkkkkkkkkkkkkkkkk ::: ', check)
         return check;
     };
     return (

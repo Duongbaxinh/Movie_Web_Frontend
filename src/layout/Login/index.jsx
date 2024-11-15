@@ -28,13 +28,14 @@ function Login() {
   ];
 
   const onSubmit = async (data) => {
-    const { data: dataUser } = await axios.post('http://localhost:8080/api/v1/user/login', {
+    const { data: dataUser } = await axios.post('http://localhost:8080/api/v1/users/login', {
       email: data.email,
       password: data.password
     })
-    const { user, tokens } = dataUser.metadata;
+    console.log('check data user :::: ', dataUser)
+    const { user, accessToken } = dataUser;
     localStorage.setItem('user', JSON.stringify(user))
-    localStorage.setItem('accessToken', JSON.stringify(`Bearer ${tokens.accessToken}`))
+    localStorage.setItem('accessToken', JSON.stringify(`Bearer ${accessToken}`))
     localStorage.setItem('isLogin', JSON.stringify(true))
     navigate('/')
   }

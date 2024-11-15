@@ -13,10 +13,11 @@ import { reduxAction } from "../../constant/reduxAction";
 import movieAction from "../../redux/action";
 import { PayPalButton } from "react-paypal-button-v2";
 import { PayPalButtons } from "@paypal/react-paypal-js";
+// import { seriData } from "../../lib/data/seri.data";
 
 function Hompage(props) {
-  const { data: dataSeri } = useFetch('GET', 'http://localhost:8080/api/v1/seri')
-  const { data: dataMovie } = useFetch('GET', 'http://localhost:8080/api/v1/movie')
+  const { data: dataSeri, isLoading } = useFetch('GET', 'http://localhost:8080/api/v1/seris')
+  const { data: dataMovie } = useFetch('GET', 'https://movie-web-backend-2pz8.onrender.com/api/v1/movies')
   const [translate, setTranslate] = useState(0);
 
   const handleTranslateRight = () => {
@@ -27,6 +28,8 @@ function Hompage(props) {
       setTranslate(translate + 1183);
     }
   };
+  if (isLoading) return "loading"
+  console.log("check data seri", dataSeri)
   return (
 
     <div>

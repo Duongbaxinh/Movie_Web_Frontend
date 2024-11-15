@@ -9,7 +9,7 @@ const useFetch = (method = 'get', url, dependence = []) => {
     const getData = async () => {
       try {
         const { data } = await axios.get(url);
-        console.log("response ", data)
+        console.log("response ", data.metadata)
         setData(data.metadata)
         setIsloading(false)
       } catch (error) {

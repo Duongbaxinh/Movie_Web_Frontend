@@ -22,12 +22,12 @@ function Top({ data }) {
         />
       }
     >
-      {data?.map(({ id, mv_name, mv_thumbnail }, index) => (
+      {data?.map(({ id, name, avatar }, index) => (
         <SwiperSlide key={id} style={{ flexShrink: 1 }}>
-          <Link href={`/watch/${id}`}>
+          <Link href={`/views/${id}`}>
             <Card
-              title={mv_name}
-              Urlimage={mv_thumbnail}
+              title={name}
+              Urlimage={avatar}
               top={index + 1}
               width={"212px"}
               height={"304px"}

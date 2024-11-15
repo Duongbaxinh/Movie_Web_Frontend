@@ -26,8 +26,8 @@ function FormTap(props) {
             }}
           >
             <img
-              src={data.sr_background || data.mv_thumbnail}
-              alt={data.sr_background || data.mv_thumbnail}
+              src={data.banner || data.avatar}
+              alt={data.banner || data.avatar}
               style={{
                 width: "100%",
                 height: "100%",
@@ -37,7 +37,7 @@ function FormTap(props) {
           </Box>
           <Stack justifyContent="space-between" width="414px" gap="12px">
             <Typography variant="h3">
-              {data.sr_name || data.mv_name}¬{data.mv_name}
+              {data.title || data.name}
             </Typography>
             {props.children}
           </Stack>

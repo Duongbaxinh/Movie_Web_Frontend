@@ -73,7 +73,7 @@ function Card(props) {
         >
           {form}
         </Stack>
-        <Typography variant="subtitle1">{episode} tập</Typography>
+        {/* <Typography variant="subtitle1">{episode} tập  </Typography> */}
       </Stack>
     );
   };
