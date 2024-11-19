@@ -1,6 +1,5 @@
 
 import { Box, Link, Typography } from "@mui/material";
-import { seriData } from '../../../lib/data/seri.data'
 import React from "react";
 
 import Card from "@/components/atom/Card";

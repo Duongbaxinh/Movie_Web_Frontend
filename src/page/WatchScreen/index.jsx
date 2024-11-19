@@ -25,15 +25,15 @@ function WatchScreen() {
     "time",
     "mainName",
     "trailler",
-    "seriData"
+    "SeriesData"
   ];
-  const { data: dataSeri } = useFetch('GET', `http://localhost:8080/api/v1/seris/${id}`)
-  const { data: dataMovie } = useFetch('GET', `http://localhost:8080/api/v1/movies/${id}`)
-  if (!dataSeri) return <h1>Loading...</h1>
+  const { data: dataSeries } = useFetch('GET', `https://movie-web-backend-1-bujd.onrender.com/api/v1/seris/${id}`)
+  const { data: dataMovie } = useFetch('GET', `https://movie-web-backend-1-bujd.onrender.com/api/v1/movies/${id}`)
+  if (!dataSeries) return <h1>Loading...</h1>
 
   return (
     <Box>
-      {dataSeri && dataSeri !== null && (
+      {dataSeries && dataSeries !== null && (
         <Stack width="100%" position="relative">
           <Stack
             zIndex="0"
@@ -41,7 +41,7 @@ function WatchScreen() {
             top="0"
             left="0"
             sx={{
-              backgroundImage: `url(${dataSeri?.banner})`,
+              backgroundImage: `url(${dataSeries?.banner})`,
               objectFit: "contain",
               backgroundRepeat: 'no-repeat',
               aspectRatio: '9/8',
@@ -61,13 +61,13 @@ function WatchScreen() {
             <Stack width="100%" height="100%" padding=" 0 70px" gap="20px">
               <Stack gap="20px">
                 <Typography variant="h1" >
-                  {dataSeri?.name}~{dataSeri?.genre}{" "}
+                  {dataSeries?.name}~{dataSeries?.genre}{" "}
                   <AppIcon htmlColor={colors.palette.my_white.main} />
                 </Typography>{" "}
                 <Stack direction="row" gap="5px">
                   <Typography variant="subtitle1">Tập mới nhất</Typography>
                   <Link
-                    href={`/views/${dataSeri?.Movies[0]?.id}`}
+                    href={`/views/${dataSeries?.Movies[0]?.id}`}
                     variant="subtitle1"
                     color={colors.palette.blue.main}
                   >
@@ -96,19 +96,19 @@ function WatchScreen() {
                   <AppIcon />
                 </Stack>
               </Stack>
-              <Detail description={dataSeri.description}
+              <Detail description={dataSeries.description}
                 Data={{
-                  name: dataSeri.name,
-                  genre: dataSeri.genre,
-                  chapter: dataSeri.chapter,
-                  dubbing: dataSeri.dubbing,
-                  release: dataSeri.release,
-                  author: dataSeri.author,
-                  actor: dataSeri.actor,
-                  time: dataSeri.time
+                  name: dataSeries.name,
+                  genre: dataSeries.genre,
+                  chapter: dataSeries.chapter,
+                  dubbing: dataSeries.dubbing,
+                  release: dataSeries.release,
+                  author: dataSeries.author,
+                  actor: dataSeries.actor,
+                  time: dataSeries.time
                 }} />{" "}
             </Stack>{" "}
-            <Interact Data={dataSeri} dataMovie={dataSeri.Movies} />
+            <Interact Data={dataSeries} dataMovie={dataSeries.Movies} />
           </Box>
         </Stack>
       )}

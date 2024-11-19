@@ -34,7 +34,7 @@ function Register() {
   // const { message, handleSumited } = useSubmited('Register', dataUser, handleValideUserData, '/login')
   // console.log('sumt', message)
   const onSubmit = async (data) => {
-    const { data: datauser } = await axios.post('http://localhost:8080/api/v1/users/register', {
+    const { data: datauser } = await axios.post('https://movie-web-backend-2pz8.onrender.com/api/v1/users/register', {
       firstName: "Xinh",
       lastName: "Duong Ba",
       email: data.email,

@@ -28,7 +28,7 @@ function Login() {
   ];
 
   const onSubmit = async (data) => {
-    const { data: dataUser } = await axios.post('http://localhost:8080/api/v1/users/login', {
+    const { data: dataUser } = await axios.post('https://movie-web-backend-2pz8.onrender.com/api/v1/users/login', {
       email: data.email,
       password: data.password
     })

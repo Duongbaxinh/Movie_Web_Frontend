@@ -14,7 +14,7 @@ function ListSearch(props) {
     setActive(index)
   }
   // GET MOVIE SEARCH
-  const { data, isLoading } = useFetch('GET', `http://localhost:8080/api/v1/search?querySearch=${querySearch}`)
+  const { data, isLoading } = useFetch('GET', `https://movie-web-backend-1-bujd.onrender.com/api/v1/search?querySearch=${querySearch}`)
   const tableApear =
     [
       { _id: 0, component: <All key={0} dataMovie={data} isLoading={isLoading} handleActive={handleActive} /> },

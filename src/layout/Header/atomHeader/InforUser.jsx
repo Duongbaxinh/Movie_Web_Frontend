@@ -18,7 +18,7 @@ import { red } from "@mui/material/colors";
 
 export default function InforUser(props) {
     const colors = useTheme();
-    const { userInfor, handleLogout } = props;
+    const { uSeriesnfor, handleLogout } = props;
 
     const listItem = [
         { id: 1, text: "Manage Store Movie", icon: <TheatersOutlinedIcon />, },
@@ -48,7 +48,7 @@ export default function InforUser(props) {
                 }}
                 avatar={
                     <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                        <img src={userInfor?.avatar} style={{
+                        <img src={uSeriesnfor?.avatar} style={{
                             width: "100%",
                             objectFix: "cover"
                         }} />
@@ -59,19 +59,19 @@ export default function InforUser(props) {
                         <MoreVertIcon />
                     </IconButton>
                 }
-                title={` Email: ${userInfor?.email}`}
-                subheader={`id_User: ${userInfor?._id}`}
+                title={` Email: ${uSeriesnfor?.email}`}
+                subheader={`id_User: ${uSeriesnfor?._id}`}
             />
 
             <List>
-                <Link href={`/payment/${userInfor?.postStar}`}>
+                <Link href={`/payment/${uSeriesnfor?.postStar}`}>
                     <Box sx={{
                         display: 'flex',
                         justifyContent: 'space-between',
                         color: 'white',
                         padding: '20px'
                     }}>
-                        <Typography>Post Star : {userInfor?.postStar} </Typography>
+                        <Typography>Post Star : {uSeriesnfor?.postStar} </Typography>
                         <Button sx={{ color: 'white', background: 'orange' }}>
                             Nạp Post Star
                         </Button>

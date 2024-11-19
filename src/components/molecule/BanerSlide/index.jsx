@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Seri from "./Seri";
+import { SeriesData } from "../../../lib/data/seri.data";
 import "./styles.scss";
-import { seriData } from "../../../lib/data/seri.data";
 BanerSlide.propTypes = {};
 
 function BanerSlide(props) {
@@ -15,7 +14,7 @@ function BanerSlide(props) {
 
   useEffect(() => {
     const newTimeoutId = setTimeout(() => {
-      if (visible < seriData?.length - 1) {
+      if (visible < SeriesData?.length - 1) {
         setVisible(visible + 1);
       } else {
         clearTimeout(newTimeoutId);
@@ -56,8 +55,8 @@ function BanerSlide(props) {
           ></li>
         ))}
       </ul>
-      {/* <Seri
-        dataSeri={data}
+      {/* <Series
+        dataSeries={data}
       /> */}
     </div>
   );

@@ -34,7 +34,7 @@ function Header(props) {
   const [appearBg, setAppearBg] = useState(false)
   const [value, setValue] = useState("");
   const [timeOut, setTimeouts] = useState(null);
-  const [isLogin, setIsLogin] = useState({ status: false, userInfor: null })
+  const [isLogin, setIsLogin] = useState({ status: false, uSeriesnfor: null })
   const [toggleUser, setToggleUser] = useState(false)
   const handleMenu = () => {
     if (window.innerWidth <= 1200) {
@@ -60,7 +60,7 @@ function Header(props) {
     const checkToken = localStorage.getItem('accessToken')
     const checkUser = localStorage.getItem('user')
     if (checkToken && checkUser) {
-      setIsLogin({ status: true, userInfor: JSON.parse(checkUser) })
+      setIsLogin({ status: true, uSeriesnfor: JSON.parse(checkUser) })
     }
   }, [])
 
@@ -68,7 +68,7 @@ function Header(props) {
     const logOut = async () => {
       try {
         localStorage.clear()
-        setIsLogin({ status: false, userInfor: null })
+        setIsLogin({ status: false, uSeriesnfor: null })
       } catch (error) {
         console.log(error)
       }
@@ -192,7 +192,7 @@ function Header(props) {
         </div>}
         <div className="header__user" >
           <div onClick={setToggleUser.bind(this, !toggleUser)}><PersonPinIcon fontSize="large" /></div>
-          {isLogin.status && toggleUser && <InforUser userInfor={isLogin.userInfor} handleLogout={handleLogout} />}
+          {isLogin.status && toggleUser && <InforUser uSeriesnfor={isLogin.uSeriesnfor} handleLogout={handleLogout} />}
         </div>
         <div className="header__menu-icon">
           <SubjectIcon fontSize="large" onClick={handleMenu} />

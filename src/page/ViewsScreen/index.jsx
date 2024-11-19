@@ -16,24 +16,10 @@ import { useParams } from "react-router-dom";
 ViewsScreen.propTypes = {};
 
 const link = ["author", "Country", "Category"];
-const exception = [
-  "description",
-  "updatedAt",
-  "createdAt",
-  "fileName",
-  "video",
-  "thumbnail",
-  "avatar",
-  "id",
-  "time",
-  "mainName",
-  "trailler",
-  "seriData"
-];
 
 function ViewsScreen(props) {
   const { id } = useParams();
-  const { data: dataDetail } = useFetch('GET', `http://localhost:8080/api/v1/movies/${id}`)
+  const { data: dataDetail } = useFetch('GET', `https://movie-web-backend-1-bujd.onrender.com/api/v1/movies/${id}`)
   const Icon = [
     {
       id: 1,
@@ -64,8 +50,8 @@ function ViewsScreen(props) {
   //   delete itemClone.updatedAt
   //   delete itemClone.
   //   delete itemClone.createdAt
-  //   delete itemClone.seriData
-  //   delete itemClone.seri_id
+  //   delete itemClone.SeriesData
+  //   delete itemClone.Series_id
   //   delete itemClone.description
   //   delete itemClone.video
   //   delete itemClone.trailler
@@ -108,7 +94,7 @@ function ViewsScreen(props) {
                 <Stack direction="row" gap="10px" mb="22px">
                   <YouTubeIcon />
                   <Typography variant="h3" color={red[800]}>
-                    {dataDetail.SeriId}~{dataDetail.name}
+                    {dataDetail.SeriesId}~{dataDetail.name}
                   </Typography>
                 </Stack>
                 <Typography variant="h1">{dataDetail.name}</Typography>

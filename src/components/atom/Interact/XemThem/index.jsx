@@ -4,7 +4,6 @@ import React, { Component, useEffect, useState } from "react";
 import FormTap from "../../FormTap";
 import movie from "@/api/movieApi";
 import useFetch from "../../../../hooks/useFetch";
-import { seriData } from "../../../../lib/data/seri.data";
 
 
 
@@ -18,7 +17,7 @@ const Data = {
 function XemThem(props) {
   const colors = useTheme()
   const { queryName } = props;
-  const { data: seriData } = useFetch('GET', 'http://localhost:8080/api/v1/seris')
+  const { data: SeriesData } = useFetch('GET', 'https://movie-web-backend-1-bujd.onrender.com/api/v1/seris')
 
   return (
     <Box
@@ -31,29 +30,29 @@ function XemThem(props) {
       }}
     >
       {/* ---------------- */}
-      {seriData &&
-        seriData.map((seri, index) => (
+      {SeriesData &&
+        SeriesData.map((Series, index) => (
           <Box
-            key={seri.id}
+            key={Series.id}
             color={colors.palette.my_white.main}
             sx={{
               textDecorationLine: "none",
             }}
             component={Link}
-            href={`/watch/${seri.id}`}
+            href={`/watch/${Series.id}`}
           >
-            <FormTap data={seri}>
+            <FormTap data={Series}>
               <Typography variant="subtitle2">
-                Năm phát hành: {seri.id}
+                Năm phát hành: {Series.id}
               </Typography>
               <Typography variant="subtitle2">
-                Xep hang: {seri.id}+
+                Xep hang: {Series.id}+
               </Typography>
               <Typography variant="subtitle2">
                 Nội Dung Bởi: TMS Entertainment
               </Typography>
               <Typography variant="subtitle2">
-                {`${seri.title} được mua bản quyền và được cập nhật phát
+                {`${Series.title} được mua bản quyền và được cập nhật phát
                 sóng mới nhất trên ứng dụng giải trí POPS.`}
               </Typography>
             </FormTap>

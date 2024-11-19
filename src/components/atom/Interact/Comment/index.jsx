@@ -12,13 +12,13 @@ function Comment(props) {
   const colors = useTheme()
   const { id } = useParams()
   const [reloadComment, setReloadComment] = useState(false)
-  const { data: dataComment } = useFetch('get', `http://localhost:8080/api/v1/comment/${id}`, [reloadComment])
+  const { data: dataComment } = useFetch('get', `https://movie-web-backend-2pz8.onrender.com/api/v1/comment/${id}`, [reloadComment])
   const [content, setContent] = useState('')
   const handleSendComment = async () => {
-    usePost('http://localhost:8080/api/v1/comment', {
+    usePost('https://movie-web-backend-2pz8.onrender.com/api/v1/comment', {
       parentId: null,
       movieId: id,
-      userId: 1,
+      uSeriesd: 1,
       content: content
     })
     setReloadComment(!reloadComment)

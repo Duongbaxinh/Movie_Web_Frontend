@@ -21,7 +21,7 @@ function PaymentPage(props) {
     }
     const createOrder = async (data) => {
         // Order is created on the server and the order id is returned
-        const response = await fetch("http://localhost:8080/api/v1/payment/createOrder", {
+        const response = await fetch("https://movie-web-backend-2pz8.onrender.com/api/v1/payment/createOrder", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -37,7 +37,7 @@ function PaymentPage(props) {
     };
     const onApprove = async (data) => {
         // Order is captured on the server and the response is returned to the browser
-        const response = await fetch("http://localhost:8080/api/v1/payment/capture", {
+        const response = await fetch("https://movie-web-backend-2pz8.onrender.com/api/v1/payment/capture", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
