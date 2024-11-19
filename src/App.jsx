@@ -6,7 +6,6 @@ import Hompage from "./page/Homepage";
 import them from "./theme/theme";
 import WatchScreen from "./page/WatchScreen";
 import ViewsScreen from "./page/ViewsScreen";
-import PaymentPage from "./page/PaymentPage";
 import ListSearch from './page/ListSearch'
 import Login from "./layout/Login";
 import Register from "./layout/Register";

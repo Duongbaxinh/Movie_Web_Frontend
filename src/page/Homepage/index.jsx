@@ -1,18 +1,12 @@
 import dataLive from "@/assets/data/dataLive";
 import LiveStream from "@/components/molecule/LiveStream";
-import BanerSlide from "../../components/molecule/BanerSlide"
 import NewPhim from "@/components/molecule/NewFilm";
 import Pop from "@/components/molecule/Pop";
 import ShopItem from "@/components/molecule/ShopItem";
 import Top from "@/components/molecule/Top";
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState } from "react";
+import BanerSlide from "../../components/molecule/BanerSlide";
 import useFetch from "../../hooks/useFetch";
-import { reduxAction } from "../../constant/reduxAction";
-import movieAction from "../../redux/action";
-import { PayPalButton } from "react-paypal-button-v2";
-import { PayPalButtons } from "@paypal/react-paypal-js";
 // import { SeriesData } from "../../lib/data/Series.data";
 
 function Hompage(props) {
